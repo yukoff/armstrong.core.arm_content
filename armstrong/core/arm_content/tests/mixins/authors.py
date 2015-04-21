@@ -33,11 +33,11 @@ class AuthorsMixinTestCase(ArmContentTestCase):
 
     def test_should_be_able_to_convert_to_unicode(self):
         bob, alice = generate_random_staff_users()
-        bob.first_name = u"Bøb"
+        bob.first_name = "Bøb"
         bob.save()
         article = random_authored_model(SimpleMixedinAuthorModel, bob, alice)
 
-        self.assertTrue(type(article.authors.__unicode__()) is unicode)
+        self.assertTrue(type(article.authors.__unicode__()) is str)
         expected = "%s and %s" % (bob.get_full_name(), alice.get_full_name())
         self.assertEqual(article.authors.__unicode__(), expected)
 

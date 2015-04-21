@@ -91,7 +91,7 @@ class VimeoBackendTestCase(ArmContentTestCase):
         backend = VimeoBackend()
         video = EmbeddedVideo(url, backend=backend)
 
-        self.assertRegexpMatches(backend.embed(video, height=random_height),
+        self.assertRegex(backend.embed(video, height=random_height),
                 r'height="%d"' % random_height)
 
     def test_embed_can_change_width_with_kwarg(self):
@@ -109,7 +109,7 @@ class VimeoBackendTestCase(ArmContentTestCase):
         backend = VimeoBackend()
         video = EmbeddedVideo(url, backend=backend)
 
-        self.assertRegexpMatches(backend.embed(video, width=random_width),
+        self.assertRegex(backend.embed(video, width=random_width),
                 r'width="%d"' % random_width)
 
     def test_embed_width_and_height_can_be_strings(self):
@@ -122,9 +122,9 @@ class VimeoBackendTestCase(ArmContentTestCase):
         url = "http://vimeo.com/%s" % random_id
         video = EmbeddedVideo(url, backend)
 
-        self.assertRegexpMatches(backend.embed(video, width=random_width),
+        self.assertRegex(backend.embed(video, width=random_width),
                 r'width="%s"' % random_width)
-        self.assertRegexpMatches(backend.embed(video, height=random_height),
+        self.assertRegex(backend.embed(video, height=random_height),
                 r'height="%s"' % random_height)
 
     def test_height_defaults_to_configured_if_not_provided(self):
@@ -137,7 +137,7 @@ class VimeoBackendTestCase(ArmContentTestCase):
             random_id, url = self.generate_random_url()
             backend = VimeoBackend()
             video = EmbeddedVideo(url, backend)
-            self.assertRegexpMatches(backend.embed(video),
+            self.assertRegex(backend.embed(video),
                     r'height="%s"' % random_height)
 
     def test_width_defaults_to_configured_if_not_provided(self):
@@ -150,5 +150,5 @@ class VimeoBackendTestCase(ArmContentTestCase):
             random_id, url = self.generate_random_url()
             backend = VimeoBackend()
             video = EmbeddedVideo(url, backend)
-            self.assertRegexpMatches(backend.embed(video),
+            self.assertRegex(backend.embed(video),
                     r'width="%s"' % random_width)

@@ -12,4 +12,4 @@ class AuthorsAdminTest(ArmContentTestCase):
         url = reverse("admin:arm_content_support_simpleauthoredmodel_add")
         response = self.client.get(url)
         label_pattern = r'<label [^>]*for="id_authors"[^>]*>Authors:</label>'
-        self.assertRegexpMatches(str(response), label_pattern)
+        self.assertRegex(str(response), label_pattern)

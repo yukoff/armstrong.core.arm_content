@@ -15,9 +15,9 @@ PUB_STATUSES = dict((pair[1], pair[0]) for pair in PUB_STATUS_CHOICES)
 
 class SimplePublicationMixin(models.Model):
     pub_date = models.DateTimeField(db_index=True)
-    pub_status = models.CharField((u'Publication status'), max_length=1,
+    pub_status = models.CharField(('Publication status'), max_length=1,
         choices=PUB_STATUS_CHOICES, help_text=(
-            u'Only published items will appear on the site'))
+            'Only published items will appear on the site'))
 
     @property
     def is_published(self):

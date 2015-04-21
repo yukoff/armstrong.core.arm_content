@@ -21,9 +21,7 @@ class EmbeddedVideo(object):
         return self.backend.embed(self, **kwargs)
 
 
-class EmbeddedVideoField(models.URLField):
-    __metaclass__ = models.SubfieldBase
-
+class EmbeddedVideoField(models.URLField, metaclass=models.SubfieldBase):
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 255
         super(EmbeddedVideoField, self).__init__(self, *args, **kwargs)

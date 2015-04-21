@@ -20,7 +20,7 @@ class ThumbnailTestCase(ArmContentTestCase):
 
         get_preset_thumbnail = fudge.Fake()
         get_preset_thumbnail.expects_call().\
-                with_args("image", u'thumb_size').\
+                with_args("image", 'thumb_size').\
                 returns(thumbnail_result)
         with fudge.patcher.patched_context(content_helpers, 
                     'get_preset_thumbnail',

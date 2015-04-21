@@ -39,8 +39,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'armstrong.core.arm_content'
-copyright = u'2011, Bay Citizen & Texas Tribune'
+project = 'armstrong.core.arm_content'
+copyright = '2011, Bay Citizen & Texas Tribune'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -177,8 +177,8 @@ htmlhelp_basename = 'armstrongcorearm_contentdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'armstrongcorearm_content.tex', u'armstrong.core.arm\\_content Documentation',
-   u'Bay Citizen \\& Texas Tribune', 'manual'),
+  ('index', 'armstrongcorearm_content.tex', 'armstrong.core.arm\\_content Documentation',
+   'Bay Citizen \\& Texas Tribune', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -210,8 +210,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'armstrongcorearm_content', u'armstrong.core.arm_content Documentation',
-     [u'Bay Citizen & Texas Tribune'], 1)
+    ('index', 'armstrongcorearm_content', 'armstrong.core.arm_content Documentation',
+     ['Bay Citizen & Texas Tribune'], 1)
 ]
 
 # Turn on todos

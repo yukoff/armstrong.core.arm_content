@@ -56,7 +56,7 @@ class EmbeddedVideoFieldTestCase(ArmContentTestCase):
 
     def test_field_has_basic_label_by_default(self):
         field = fields.EmbeddedVideoField()
-        self.assertEqual(field.formfield().label, u"Embedded Video URL")
+        self.assertEqual(field.formfield().label, "Embedded Video URL")
 
     def test_field_can_have_custom_label_if_kwarg_provided(self):
         field = fields.EmbeddedVideoField()

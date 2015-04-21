@@ -53,7 +53,7 @@ class YouTubeBackendTestCase(ArmContentTestCase):
             'width="%d" height="390" ' % random_width,
             'src="http://www.youtube.com/embed/%s" ',
             'frameborder="0" allowfullscreen></iframe>']) % random_id
-        self.assertRegexpMatches(backend.embed(video, width=random_width),
+        self.assertRegex(backend.embed(video, width=random_width),
                 r'width="%d"' % random_width)
 
     def test_embed_height_can_be_set_with_a_kwarg(self):
@@ -68,7 +68,7 @@ class YouTubeBackendTestCase(ArmContentTestCase):
             'width="%d" height="390" ' % random_height,
             'src="http://www.youtube.com/embed/%s" ',
             'frameborder="0" allowfullscreen></iframe>']) % random_id
-        self.assertRegexpMatches(backend.embed(video, height=random_height),
+        self.assertRegex(backend.embed(video, height=random_height),
                 r'height="%d"' % random_height)
 
     def test_embed_width_and_height_can_be_strings(self):
@@ -84,9 +84,9 @@ class YouTubeBackendTestCase(ArmContentTestCase):
             'width="%s" height="%s" ' % (random_width, random_height),
             'src="http://www.youtube.com/embed/%s" ',
             'frameborder="0" allowfullscreen></iframe>']) % random_id
-        self.assertRegexpMatches(backend.embed(video, width=random_width),
+        self.assertRegex(backend.embed(video, width=random_width),
                 r'width="%s"' % random_width)
-        self.assertRegexpMatches(backend.embed(video, height=random_height),
+        self.assertRegex(backend.embed(video, height=random_height),
                 r'height="%s"' % random_height)
 
     def test_height_defaults_to_configured_if_not_provided(self):
@@ -99,7 +99,7 @@ class YouTubeBackendTestCase(ArmContentTestCase):
             random_id, url = self.generate_random_url()
             backend = YouTubeBackend()
             video = EmbeddedVideo(url, backend)
-            self.assertRegexpMatches(backend.embed(video),
+            self.assertRegex(backend.embed(video),
                     r'height="%s"' % random_height)
 
     def test_width_defaults_to_configured_if_not_provided(self):
@@ -112,5 +112,5 @@ class YouTubeBackendTestCase(ArmContentTestCase):
             random_id, url = self.generate_random_url()
             backend = YouTubeBackend()
             video = EmbeddedVideo(url, backend)
-            self.assertRegexpMatches(backend.embed(video),
+            self.assertRegex(backend.embed(video),
                     r'width="%s"' % random_width)

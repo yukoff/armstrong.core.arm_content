@@ -43,19 +43,19 @@ class AuthorsManager(User.objects.__class__):
         #
         # TODO: Make this use a template for rendering so its easier to
         # international later on.
-        ret = u', '.join(names[:-2] + \
-                [(u', ' if extra else u' and ').join(names[-2:])])
+        ret = ', '.join(names[:-2] + \
+                [(', ' if extra else ' and ').join(names[-2:])])
 
         # This adds a space if ``extra`` starts with a letter.  This assumes
         # that anything other than a letter (generally, a comma) should be put
         # directly against the byline.
         if extra:
             space = ' ' if extra[0].isalpha() else ''
-            ret = u"%s%s%s" % (ret, space, extra)
+            ret = "%s%s%s" % (ret, space, extra)
         return ret
 
     def __str__(self):
-        return unicode(self)
+        return str(self)
 
     def html(self):
         return self.__unicode__(formatter=user_to_link)

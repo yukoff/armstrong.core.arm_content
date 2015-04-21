@@ -37,11 +37,11 @@ class AuthorsFieldTestCase(ArmContentTestCase):
 
     def test_should_be_able_to_convert_to_unicode(self):
         bob, alice = generate_random_staff_users()
-        bob.first_name = u"Bøb"
+        bob.first_name = "Bøb"
         bob.save()
         article = random_authored_model(SimpleAuthoredModel, bob, alice)
 
-        self.assertTrue(type(article.authors.__unicode__()) is unicode)
+        self.assertTrue(type(article.authors.__unicode__()) is str)
         expected = "%s and %s" % (bob.get_full_name(), alice.get_full_name())
         self.assertEqual(article.authors.__unicode__(), expected)
 
@@ -197,7 +197,7 @@ class AuthorsDescriptorTestCase(ArmContentTestCase):
         try:
             authors_field = SimpleAuthoredModel.authors
             self.assertTrue(True, "Was able to look at authors on the model")
-        except AttributeError, e:
+        except AttributeError as e:
             self.fail("Should not have raised an exception: %s" % e)
 
     def test_returns_descriptor_when_retrieved_off_of_model(self):
